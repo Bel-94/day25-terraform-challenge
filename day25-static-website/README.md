@@ -22,6 +22,14 @@ The challenge for Day 25 was to deploy a fully functional static website on AWS 
 
 ---
 
+## Live Website
+
+![CloudOffice Solutions — Live on CloudFront](images/static-website-on-browser.png)
+
+> The live website served over HTTPS via CloudFront, a real landing page for CloudOffice Solutions, a personal AWS cloud consultancy.
+
+---
+
 ## My Approach — A Real Static Website Instead
 
 The task provided a minimal placeholder HTML page as a starting point. Rather than stop there, I chose to build and deploy a **real, production-quality static website**; a landing page for **CloudOffice Solutions**, a personal cloud consultancy business that helps SMBs move to and thrive on AWS.
@@ -33,6 +41,10 @@ The task provided a minimal placeholder HTML page as a starting point. Rather th
 
 ### On the Route53 Bonus
 The bonus task required a custom domain registered in Route53. I do not currently have a Route53 domain, so I did not complete the Route53/ACM portion. Instead, the website is served over HTTPS via the **CloudFront default certificate** on a `*.cloudfront.net` domain, which is exactly what the main task requires and what the submission asks for in the *Live App Link* field.
+
+![CloudFront browser output showing HTTPS](images/cloudfront-browser-output.png)
+
+> CloudFront serving the site over HTTPS on the default `*.cloudfront.net` domain.
 
 ---
 
@@ -246,6 +258,10 @@ terraform output cloudfront_domain_name
 
 Open the CloudFront URL in your browser. CloudFront distributions take **5–15 minutes** to fully propagate globally after first creation.
 
+![terraform apply output](images/terraform-apply.png)
+
+> `terraform apply` completing successfully — all resources created.
+
 ### Updating the Website
 
 After any change to files in `website/`:
@@ -256,6 +272,10 @@ aws cloudfront create-invalidation --distribution-id <distribution_id> --paths "
 ```
 
 The `etag = filemd5(each.value.path)` on the `aws_s3_object` resource ensures Terraform detects file changes and re-uploads only what has changed. The CloudFront invalidation clears the CDN cache so browsers receive the updated files immediately.
+
+![terraform plan after adding website files](images/plan-after-adding-website.png)
+
+> `terraform plan` after adding the real website files showing the 5 S3 objects to be uploaded.
 
 ---
 
