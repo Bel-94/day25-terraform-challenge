@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CloudOffice Solutions — Cloud Services on AWS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">
+        <img src="CloudOffice-Solutions-logo.png" alt="CloudOffice Solutions" class="nav__logo-img" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#stack">Tech Stack</a></li>
+        <li><a href="#contact" class="btn btn--sm">Get Started</a></li>
+      </ul>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__content">
+      <span class="badge">☁ Independent Cloud Consultant</span>
+      <h1 class="hero__title">Your Business.<br/>Our Cloud.<br/>Zero Guesswork.</h1>
+      <p class="hero__sub">I help small and medium businesses move to AWS, cut cloud costs, and build infrastructure that actually scales without the big agency price tag.</p>
+      <div class="hero__cta">
+        <a href="#contact" class="btn btn--primary">Book a Free Consultation</a>
+        <a href="#services" class="btn btn--ghost">See Our Services</a>
+      </div>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+      <div class="cloud-diagram" id="cloudDiagram"></div>
+    </div>
+  </header>
+
+  <!-- LOGOS -->
+  <section class="logos">
+    <p class="logos__label">Trusted AWS services we work with every day</p>
+    <div class="logos__row">
+      <span class="logo-pill">EC2</span>
+      <span class="logo-pill">S3</span>
+      <span class="logo-pill">Lambda</span>
+      <span class="logo-pill">RDS</span>
+      <span class="logo-pill">CloudFront</span>
+      <span class="logo-pill">EKS</span>
+      <span class="logo-pill">IAM</span>
+      <span class="logo-pill">VPC</span>
+      <span class="logo-pill">Route 53</span>
+      <span class="logo-pill">CloudWatch</span>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="container">
+      <h2 class="section__title">What We Do</h2>
+      <p class="section__sub">End-to-end AWS cloud services tailored to your business stage.</p>
+      <div class="cards" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section section--alt" id="why">
+    <div class="container">
+      <h2 class="section__title">Why Work With Me</h2>
+      <p class="section__sub">No sales team. No account managers. Just direct, hands-on cloud expertise for your business.</p>
+      <div class="stats">
+        <div class="stat" data-target="30">
+          <span class="stat__number" id="stat0">0</span><span class="stat__suffix">+</span>
+          <p class="stat__label">Businesses Helped</p>
+        </div>
+        <div class="stat" data-target="99">
+          <span class="stat__number" id="stat1">0</span><span class="stat__suffix">%</span>
+          <p class="stat__label">Client Satisfaction</p>
+        </div>
+        <div class="stat" data-target="40">
+          <span class="stat__number" id="stat2">0</span><span class="stat__suffix">%</span>
+          <p class="stat__label">Avg. Cost Reduction</p>
+        </div>
+        <div class="stat" data-target="24">
+          <span class="stat__number" id="stat3">0</span><span class="stat__suffix">/7</span>
+          <p class="stat__label">Support Available</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="section" id="stack">
+    <div class="container">
+      <h2 class="section__title">Our IaC Stack</h2>
+      <p class="section__sub">We practice what we preach everything is code, everything is versioned.</p>
+      <div class="stack-grid" id="stackGrid"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--dark" id="contact">
+    <div class="container container--narrow">
+      <h2 class="section__title">Let's Talk About Your Project</h2>
+      <p class="section__sub">Drop me a message and I'll get back to you personally within 24 hours — no automated replies, no runaround.</p>
+      <form class="form" id="contactForm" novalidate>
+        <div class="form__row">
+          <input class="form__input" type="text" id="name" placeholder="Your Name" required />
+          <input class="form__input" type="email" id="email" placeholder="Work Email" required />
+        </div>
+        <select class="form__input" id="service">
+          <option value="">I'm interested in...</option>
+          <option>Cloud Migration</option>
+          <option>Infrastructure as Code</option>
+          <option>Cost Optimisation</option>
+          <option>Managed Cloud Ops</option>
+          <option>Security & Compliance</option>
+        </select>
+        <textarea class="form__input form__textarea" id="message" placeholder="Tell us about your current setup and goals..." rows="4"></textarea>
+        <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+        <p class="form__feedback" id="formFeedback"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>☁ CloudOffice Solutions &copy; <span id="year"></span> — Built &amp; deployed with Terraform on AWS</p>
+      <p class="footer__sub">Hosted on S3 · Distributed via CloudFront · IaC with Terraform</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+# ── Terraform State ──────────────────────────────────────────────────────────
+# Never commit state files — they contain sensitive resource metadata and
+# secrets in plaintext (passwords, keys, connection strings)
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+
+# ── Terraform Working Directory ───────────────────────────────────────────────
+# Downloaded providers and modules — large binaries, fully reproducible via
+# terraform init, no reason to version control them
+.terraform/
+.terraform.lock.hcl
+
+# ── Variable Files with Real Values ──────────────────────────────────────────
+# terraform.tfvars and *.auto.tfvars often contain real bucket names, account
+# IDs, secrets, or environment-specific values that should not be public.
+# Commit terraform.tfvars.example instead with placeholder values.
+*.tfvars
+*.tfvars.json
+
+# ── Crash & Override Files ────────────────────────────────────────────────────
+# Terraform writes crash.log on unexpected errors — may contain sensitive data
+crash.log
+crash.*.log
+
+# Override files are local developer workarounds, not part of the shared config
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ── AWS Credentials & Config ──────────────────────────────────────────────────
+# Should never be anywhere near a repo
+.aws/
+credentials
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ── Environment & Secret Files ────────────────────────────────────────────────
+.env
+.env.*
+*.secret
+secrets.tf
+secrets.tfvars
+
+# ── OS & Editor Noise ─────────────────────────────────────────────────────────
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# VS Code
+.vscode/
+
+# JetBrains IDEs
+.idea/
+
+# Vim
+*.swp
+*.swo
+
+# ── Terraform Plan Files ──────────────────────────────────────────────────────
+# Plan output files can contain sensitive values from your state/variables
+*.tfplan
+tfplan
